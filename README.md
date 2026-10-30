@@ -166,16 +166,6 @@ python evaluate_pipelines.py --per-class 20
 Picks random clips from a fixed seed, leaves out the hand-picked demo clips, runs both pipelines, and writes `app/static/model_eval.json`.
 The Video Analysis panel then shows accuracy, recall, false-alarm rate and speed from those clips. The 6 demo clips are chosen to look clear.
 
-## Deployment
-
-| Part | Where |
-| --- | --- |
-| Frontend | Vercel (set `VITE_API_BASE_URL` to the backend address) |
-| Backend + models | Hugging Face Spaces (Docker). Set the `.env` values as Space secrets |
-| Database | Supabase |
-
-Set `ALLOWED_ORIGINS` on the backend to the Vercel address. The Docker image needs `ffmpeg` and `libglib2.0-0`.
-
 ## Privacy and safety
 
 - No camera, recording or analysis in private zones. The dashboard blocks video there.
