@@ -1,0 +1,6 @@
+{
+  "name": "SafeZone - Privacy-First School Safety Incident Response",
+  "description": "SafeZone is a privacy-first AI-powered school safety incident response system featuring automated triage, zone mapping, private-area safety, and case management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

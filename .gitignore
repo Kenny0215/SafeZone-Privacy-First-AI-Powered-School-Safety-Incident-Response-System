@@ -1,0 +1,15 @@
+# Python virtual environment (yours is the "safezone" folder)
+safezone/
+venv/
+.venv/
+
+# Secrets, in case a .env ends up at the root
+.env
+.env.*
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,35 @@
+# --- SECRETS: Supabase service key + Telegram token ---
+.env.local
+.env.*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+
+# --- AI model files and datasets: big, and downloaded again automatically ---
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+app/models/movinet_a0/
+data/
+*.avi
+
+# --- Live runtime output: created every time the app runs ---
+app/static/uploads/
+app/static/outputs/evidence_*.jpg
+app/static/outputs/refined_[0-9a-f]*.mp4
+app/static/outputs/baseline_[0-9a-f]*.mp4
+
+!app/static/outputs/*demo_*.mp4
+
+# --- Scratch ---
+*.log
+*.csv

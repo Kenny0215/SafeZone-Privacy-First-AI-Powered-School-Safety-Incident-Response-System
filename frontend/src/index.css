@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ---- Login page ambient "protection network" background ---- */
+@keyframes login-aurora {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes login-float {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  12% { opacity: 0.55; }
+  88% { opacity: 0.3; }
+  100% { transform: translateY(-140px) scale(1.08); opacity: 0; }
+}
+
+@keyframes login-pulse-ring {
+  0% { transform: scale(0.55); opacity: 0.6; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes login-dash {
+  to { stroke-dashoffset: -220; }
+}
+
+@keyframes login-slow-spin {
+  to { transform: rotate(360deg); }
+}
+
+.login-aurora-bg {
+  background-size: 200% 200%;
+  animation: login-aurora 16s ease-in-out infinite;
+}
+
+.login-float {
+  animation: login-float linear infinite;
+}
+
+.login-pulse-ring {
+  animation: login-pulse-ring 3.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+.login-dash {
+  stroke-dasharray: 6 12;
+  animation: login-dash 2.6s linear infinite;
+}
+
+.login-slow-spin {
+  animation: login-slow-spin 90s linear infinite;
+}

@@ -1,0 +1,36 @@
+# Tuned copy of ultralytics' built-in bytetrack.yaml, used by
+# baseline_yolo_bytetrack.py instead of the stock "bytetrack.yaml" name.
+#
+# Why: on grainy/elevated-angle CCTV-style footage with only 2-4 real
+# people on screen, we were seeing track IDs climb into the teens/
+# twenties within a single ~150-frame clip (e.g. a track hitting ID 17
+# or 58). ByteTrack wasn't tracking 17 different people — it was losing
+# a real person for a few frames (brief occlusion, a blurry low-confidence
+# detection, two people briefly overlapping) and spawning a brand-new ID
+# when it reappeared, instead of recognizing it as the same track.
+#
+# That instability is also *why* some clips under-score on the refined
+# (MoViNet) pipeline: if a track keeps resetting, it never accumulates
+# the continuous run of frames MoViNet needs to score it.
+#
+# Changes from ultralytics' stock defaults:
+#   track_buffer:    30 -> 90   (how many frames a LOST track is kept
+#                                 alive before being dropped for good —
+#                                 tripled, so a multi-second occlusion/
+#                                 overlap survives as the SAME id instead
+#                                 of starting a new one)
+#   track_low_thresh: 0.1 -> 0.05  (more willing to re-associate a
+#                                 low-confidence detection — common on
+#                                 blurry/distant CCTV frames — back into
+#                                 an existing track instead of treating
+#                                 it as noise and letting the track lapse)
+#
+# Everything else matches ultralytics' own bytetrack.yaml so this stays
+# a ByteTrack tracker, not a different algorithm.
+tracker_type: bytetrack
+track_high_thresh: 0.25
+track_low_thresh: 0.05
+new_track_thresh: 0.25
+track_buffer: 90
+match_thresh: 0.8
+fuse_score: True

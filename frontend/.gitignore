@@ -1,0 +1,14 @@
+# --- Env files ---
+.env.local
+.env.*
+
+# --- Node / React ---
+node_modules/
+dist/
+build/
+.vite/
+*.tsbuildinfo
+
+# --- Logs ---
+*.log
+npm-debug.log*
